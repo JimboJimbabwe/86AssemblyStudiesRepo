@@ -1,0 +1,224 @@
+import random
+
+questions = [
+    {
+        "question": "Which register is traditionally used for arithmetic operations?",
+        "options": ["eax", "ebx", "ecx", "edx"],
+        "answer": "eax"
+    },
+    {
+        "question": "Which register is often used as a pointer to data?",
+        "options": ["eax", "ebx", "ecx", "edx"],
+        "answer": "ebx"
+    },
+    {
+        "question": "Which register is traditionally used for loop counters?",
+        "options": ["eax", "ebx", "ecx", "edx"],
+        "answer": "ecx"
+    },
+    {
+        "question": "Which flag is set if the result of an operation is zero?",
+        "options": ["cf", "zf", "sf", "of"],
+        "answer": "zf"
+    },
+    {
+        "question": "Which instruction is used to move data from source to destination?",
+        "options": ["addl", "subl", "movl", "cmpl"],
+        "answer": "movl"
+    },
+    {
+        "question": "Which jump instruction is used when the zero flag is set?",
+        "options": ["je", "jne", "jg", "jl"],
+        "answer": "je"
+    },
+    {
+        "question": "Which set instruction is used when the zero flag is not set?",
+        "options": ["sete", "setne", "setg", "setl"],
+        "answer": "setne"
+    },
+    {
+        "question": "Which register is often paired with 'eax' for larger operations?",
+        "options": ["ebx", "ecx", "edx", "esi"],
+        "answer": "edx"
+    },
+    {
+        "question": "The 'eip' register stands for what?",
+        "options": ["Extended Index Pointer", "Extended Instruction Pointer", "Execution Index Pointer",
+                    "Execution Instruction Pointer"],
+        "answer": "Extended Instruction Pointer"
+    },
+    {
+        "question": "Which register is often used for string operations as the source index?",
+        "options": ["eax", "edi", "esi", "ebp"],
+        "answer": "esi"
+    },
+    {
+        "question": "Which of the following is NOT a general purpose register in x86?",
+        "options": ["eax", "eip", "ecx", "edx"],
+        "answer": "eip"
+    },
+    {
+        "question": "What does the 'sf' flag indicate when set?",
+        "options": ["Result is positive", "Arithmetic overflow occurred", "Result is zero", "Result is negative"],
+        "answer": "Result is negative"
+    },
+    {
+        "question": "Which instruction is used to compare two values?",
+        "options": ["movl", "addl", "subl", "cmpl"],
+        "answer": "cmpl"
+    },
+    {
+        "question": "Which of the following instructions is a one operand instruction?",
+        "options": ["addl", "subl", "negl", "movl"],
+        "answer": "negl"
+    },
+    {
+        "question": "Which flag is set if there's a carry out of the most significant bit?",
+        "options": ["cf", "zf", "sf", "of"],
+        "answer": "cf"
+    },
+    {
+        "question": "Which instruction adds the source and destination?",
+        "options": ["movl", "subl", "addl", "cmpl"],
+        "answer": "addl"
+    },
+    {
+        "question": "What does the 'of' flag indicate when set?",
+        "options": ["Result is zero", "Arithmetic overflow occurred", "Result is negative", "Carry out from MSB"],
+        "answer": "Arithmetic overflow occurred"
+    },
+
+    {
+        "question": "The 'ebp' register is traditionally used to point to what?",
+        "options": ["The top of the stack", "Data on the stack", "The next instruction to be executed",
+                    "String operations"],
+        "answer": "Data on the stack"
+    },
+    {
+        "question": "Which instruction allows you to jump if the result is not zero?",
+        "options": ["je", "jne", "jg", "jl"],
+        "answer": "jne"
+    },
+    {
+        "question": "Which register is often used as a pointer for data?",
+        "options": ["eax", "ebx", "ecx", "edx"],
+        "answer": "ebx"
+    },
+    {
+        "question": "Which flag reflects if the result of an operation is zero?",
+        "options": ["cf", "zf", "sf", "of"],
+        "answer": "zf"
+    },
+    {
+        "question": "Which of the following instructions will move data from the source to the destination?",
+        "options": ["addl", "movl", "subl", "sete"],
+        "answer": "movl"
+    },
+    {
+        "question": "The 'esi' register is traditionally used for what kind of operations?",
+        "options": ["Arithmetic", "Data storing", "String", "Jumping"],
+        "answer": "String"
+    },
+    {
+        "question": "Which instruction is used to subtract the source from the destination?",
+        "options": ["addl", "subl", "movl", "negl"],
+        "answer": "subl"
+    },
+    {
+        "question": "Which of the following is a condition code in x86 architecture?",
+        "options": ["eip", "esp", "cf", "eax"],
+        "answer": "cf"
+    },
+    {
+        "question": "Which flag is set when there is an arithmetic overflow?",
+        "options": ["zf", "sf", "of", "cf"],
+        "answer": "of"
+    },
+    {
+        "question": "Which instruction sets the destination to 1 if the result is equal (zero flag set)?",
+        "options": ["sete", "setne", "setg", "setl"],
+        "answer": "sete"
+    },
+
+    {
+        "question": "Which of the following is NOT a general-purpose register?",
+        "options": ["eip", "ebx", "ecx", "edx"],
+        "answer": "eip"
+    },
+    {
+        "question": "For larger operations, which register often pairs with 'eax'?",
+        "options": ["ebx", "ecx", "edx", "esi"],
+        "answer": "edx"
+    },
+    {
+        "question": "Which instruction compares two values and sets condition codes based on the result?",
+        "options": ["movl", "addl", "cmpl", "subl"],
+        "answer": "cmpl"
+    },
+    {
+        "question": "What does the 'jg' instruction stand for?",
+        "options": ["Jump if greater (signed)", "Jump if greater (unsigned)", "Jump if greater or equal",
+                    "Jump if less (signed)"],
+        "answer": "Jump if greater (signed)"
+    },
+    {
+        "question": "Which flag gets set if there's a carry out of the most significant bit?",
+        "options": ["zf", "of", "sf", "cf"],
+        "answer": "cf"
+    },
+    {
+        "question": "Which register always points to the top of the stack?",
+        "options": ["eax", "ebx", "esp", "ebp"],
+        "answer": "esp"
+    },
+    {
+        "question": "In x86 assembly, what is the main purpose of the 'edi' register?",
+        "options": ["Destination Index for string operations", "Count register for loop counters",
+                    "Base register pointing to data", "Holds the memory address of the next instruction"],
+        "answer": "Destination Index for string operations"
+    },
+    {
+        "question": "Which instruction will jump if the result is negative?",
+        "options": ["jz", "js", "jne", "jge"],
+        "answer": "js"
+    },
+    {
+        "question": "If you want to move the data from 'eax' to 'ebx', which of the following instructions should you use?",
+        "options": ["movl ebx, eax", "movl eax, ebx", "addl ebx, eax", "subl eax, ebx"],
+        "answer": "movl eax, ebx"
+    },
+    {
+        "question": "Which flag indicates that the result of an operation is negative?",
+        "options": ["zf", "sf", "cf", "of"],
+        "answer": "sf"
+    }
+]
+
+
+def ask_question(question):
+    print(question["question"])
+    for idx, option in enumerate(question["options"]):
+        print(f"{idx + 1}. {option}")
+    answer = input("Choose the correct option (1-4): ")
+    if question["options"][int(answer) - 1] == question["answer"]:
+        return True
+    return False
+
+
+def main():
+    score = 0
+    random.shuffle(questions)
+
+    for q in questions:
+        if ask_question(q):
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong. Correct answer is {q['answer']}.")
+        print()
+
+    print(f"Your score is {score}/{len(questions)}")
+
+
+if __name__ == "__main__":
+    main()
